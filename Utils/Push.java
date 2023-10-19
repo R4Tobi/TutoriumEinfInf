@@ -1,7 +1,8 @@
 package Utils;
 
 public class Push {
-    private static int[] pushInt(int[] array, int push) {
+
+    public static int[] pushInt(int[] array, int push) {
         //verlängere den Array um eine Position
         int[] longer = new int[array.length + 1];
         //füge die werte dem neuen Array hinzu
