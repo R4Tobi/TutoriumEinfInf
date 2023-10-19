@@ -97,8 +97,13 @@ public class Statistics {
             for(int jndex = 0; jndex < entries[index];jndex++){
                 hash += "#";
             }
+            //gucken dasdie zahlen am anfang das histogramm nicht verfälschen
+            StringBuilder indexString = new StringBuilder((index + lowest) + ":");
+            while(indexString.length() <= 4){
+                indexString.append(" ");
+            }
             //neue Zeile im Histogramm
-            histogramm += (index + lowest) + ":" + hash + "\n";
+            histogramm += indexString + hash + "\n";
         }
         return histogramm;
     }
