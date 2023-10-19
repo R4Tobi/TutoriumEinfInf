@@ -1,5 +1,5 @@
 //global imports
-
+import java.util.Arrays;
 //local imports
 import Utils.*;
 
@@ -26,6 +26,12 @@ public class Statistics {
 
         //Ausabe der Varianz
         System.out.println("Varianz: " + varianz(intArgs));
+
+        //Ausgabe der Standardabweichung
+        System.out.println("Standardabweichung " + standardabweichung(intArgs));
+
+        //Ausgabe des Histogramms
+        System.out.println("Histogramm: \n" + histogramm(intArgs));
     }
 
     public static int summe(int[] numbers){
@@ -38,7 +44,7 @@ public class Statistics {
     }
 
     public static double mittelwert(int[] numbers){
-        //Berechnen des aritmetischen Mittels durch die Summe der Zahlen und der Anzahl der Einträge
+        //Berechnen des arithmetischen Mittels durch die Summe der Zahlen und der Anzahl der Einträge
         int summe = summe(numbers);
         return ((double) summe / numbers.length);
     }
@@ -46,12 +52,54 @@ public class Statistics {
     public static double varianz(int[] numbers){
         double mittelwert = mittelwert(numbers);
         double varianz = 0;
+        //Die Schleife berechnet die Summe(Iteration) der Formel
+        // Images/Varianz.png
         for(int number : numbers){
             varianz += (Math.pow(number - mittelwert, 2));
         }
+        //Berechnet den vorderen Teil der Gleichung 1/(n-1)
         varianz /= (numbers.length - 1);
 
         return varianz;
     }
 
+    public static double standardabweichung(int[] numbers){
+        return (Math.sqrt(varianz(numbers)));
+    }
+
+    public static String histogramm(int[] numbers){
+        int highest = numbers[0];
+        int lowest = numbers[0];
+
+        for(int number : numbers){
+            if(highest < number){
+                highest = number;
+            }
+            if(lowest > number){
+                lowest = number;
+            }
+        }
+        //Erstelle einen neuen Array der die Länge des Intervalls der Nummern hat
+        int length = highest-lowest+1;
+        int[] entries = new int[length];
+
+        //Erhöhen der werte in den entries. Index entspricht dem Wert im Intervall
+        for(int number : numbers){
+            entries[number-lowest]++;
+        }
+
+        //Erstellen des Histogramms
+        String histogramm = "";
+        //für jeden Eintrag in entries wird ein neuer Balken erstellt, der die Länge des Wertes des Eintrags hat
+        for(int index = 0;index < entries.length; index++){
+            //hash stellt die Länge des Balkens dar
+            String hash = "";
+            for(int jndex = 0; jndex < entries[index];jndex++){
+                hash += "#";
+            }
+            //neue Zeile im Histogramm
+            histogramm += (index + lowest) + ":" + hash + "\n";
+        }
+        return histogramm;
+    }
 }
