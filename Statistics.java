@@ -79,8 +79,8 @@ public class Statistics {
                 lowest = number;
             }
         }
-        //Erstelle einen neuen Array der die Länge des Intervalls der Nummern hat
-        int length = highest-lowest+1;
+        //Erstelle einen neuen Array der die Länge des Intervalls der Nummern hat. Mit +1 wird der Index auf die tatsächliche Länge angepasst.
+        int length = (highest-lowest) + 1;
         int[] entries = new int[length];
 
         //Erhöhen der werte in den entries. Index entspricht dem Wert im Intervall
@@ -97,7 +97,7 @@ public class Statistics {
             for(int jndex = 0; jndex < entries[index];jndex++){
                 hash += "#";
             }
-            //gucken dasdie zahlen am anfang das histogramm nicht verfälschen
+            //gucken das die zahlen am anfang das histogramm nicht verfälschen
             StringBuilder indexString = new StringBuilder((index + lowest) + ":");
             while(indexString.length() <= 4){
                 indexString.append(" ");
