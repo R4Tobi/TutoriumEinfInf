@@ -36,7 +36,7 @@ public class Sieve {
             array[index] = index;
         }
         System.out.println(Arrays.toString(array));
-        //Ende der Schleife ist erreicht, wenn die hälfte aller möglichen operationen erreicht ist (1*9 = 9*1), also reicht die Wurzel der höchsten zahl als Durchgänge
+        //Ende der Schleife ist erreicht, wenn die hälfte aller möglichen operationen erreicht ist (1*9 = 9*1), also reicht die Wurzel der höchsten zahl als Anzahl der Durchgänge
         double end = Math.sqrt(n);
         //Zählerschleife für dividenden
         for(int jndex = 2; jndex < end; jndex++){
@@ -64,7 +64,9 @@ public class Sieve {
         //verlängere den Array um eine Position
         int[] longer = new int[array.length + 1];
         //füge die werte dem neuen Array hinzu
-        for (int i = 0; i < array.length; i++) longer[i] = array[i];
+        for (int i = 0; i < array.length; i++){
+            longer[i] = array[i];
+        }
         //setze den neuen Wert an der letzten Position ein
         longer[array.length] = push;
         return longer;

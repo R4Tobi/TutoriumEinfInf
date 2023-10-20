@@ -1,8 +1,3 @@
-//global imports
-import java.util.Arrays;
-//local imports
-import Utils.*;
-
 public class Statistics {
     public static void main(String[] args){
         //Kontrollieren ob einer der Parameter kein Integer ist
@@ -16,7 +11,7 @@ public class Statistics {
         }
 
         //Alle String Parameter mit dem Paket Utils in Integer Umwandeln
-        int[] intArgs = Convert.StringArrToIntArr(args);
+        int[] intArgs = StringArrToIntArr(args);
 
         //Ausgabe der Summe
         System.out.println("Summe: " + summe(intArgs));
@@ -24,7 +19,7 @@ public class Statistics {
         //Ausgabe des Mittelwerts
         System.out.println("Mittelwert: " + mittelwert(intArgs));
 
-        //Ausabe der Varianz
+        //Ausgabe der Varianz
         System.out.println("Varianz: " + varianz(intArgs));
 
         //Ausgabe der Standardabweichung
@@ -32,6 +27,15 @@ public class Statistics {
 
         //Ausgabe des Histogramms
         System.out.println("Histogramm: \n" + histogramm(intArgs));
+    }
+
+    public static int[] StringArrToIntArr(String[] s) {
+        int[] result = new int[s.length];
+        //jeder Eintrag im String Array wird zu einem Integer umgewandelt
+        for (int i = 0; i < s.length; i++) {
+            result[i] = Integer.parseInt(s[i]);
+        }
+        return result;
     }
 
     public static int summe(int[] numbers){
