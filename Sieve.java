@@ -1,11 +1,5 @@
-//global imports
-
-//local imports
-import Utils.*;
-
 import java.util.Arrays;
-
-import static Utils.Push.pushInt;
+import java.util.Date;
 
 public class Sieve {
     public static void main(String[] args){
@@ -23,30 +17,35 @@ public class Sieve {
             System.out.println("The parameter can't be negative.");
             return;
         }
-
+        long time = new Date().getTime();
         //Gebe alle Primzahlen bis zum gewünschten Parameter aus
         System.out.println("Alle Primzahlen bis " + args[0] + ": " + Arrays.toString(eratosthenesSieve(Integer.parseInt(args[0]))));
+
+
+        System.out.println("Execution time: " + (new Date().getTime() - time) + "ms");
     }
 
     public static int[] eratosthenesSieve(int n){
         //Erstellen eines neuen Arrays mit dem Inhalt von 0 bis n
         int[] array = new int[n];
-        for(int index = 0; index < n; index++){
+        for(int index = 2; index < n; index++){
             array[index] = index;
         }
+        System.out.println(Arrays.toString(array));
         //entferne jede nummer aus dem array die keine Primzahl ist
-        for(int jndex = 0; jndex < n; jndex++){
-            if(array[jndex] < 2){
-                array[jndex] = 0;
-                continue;
-            }
-            for(int kndex = 2; kndex <= Math.sqrt(array[jndex]); kndex++){
-                if (array[jndex] % kndex == 0) {
-                    array[jndex] = 0;
-                    break;
+        double end = Math.sqrt(n);
+
+        for(int jndex = 2; jndex < end; jndex++){
+            for(int index = 0; index < n; index++){
+                if(array[index] % jndex == 0 && array[index] != jndex){
+                    array[index] = 0;
                 }
             }
+            System.out.println(Arrays.toString(array));
         }
+
+
+
         int[] returnArr = new int[0];
         for(int entry : array){
             if(entry != 0){
@@ -54,5 +53,15 @@ public class Sieve {
             }
         }
         return returnArr;
+    }
+
+    public static int[] pushInt(int[] array, int push) {
+        //verlängere den Array um eine Position
+        int[] longer = new int[array.length + 1];
+        //füge die werte dem neuen Array hinzu
+        for (int i = 0; i < array.length; i++) longer[i] = array[i];
+        //setze den neuen Wert an der letzten Position ein
+        longer[array.length] = push;
+        return longer;
     }
 }
