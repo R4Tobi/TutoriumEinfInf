@@ -1,5 +1,10 @@
+import java.util.Date;
+
 public class Statistics {
     public static void main(String[] args){
+        //Für die Execution-Zeit
+        long time = new Date().getTime();
+
         //Kontrollieren ob einer der Parameter kein Integer ist
         for (String arg : args) {
             try {
@@ -27,6 +32,9 @@ public class Statistics {
 
         //Ausgabe des Histogramms
         System.out.println("Histogramm: \n" + histogramm(intArgs));
+
+        //Execution Zeit berechnen und ausgeben
+        System.out.println("Execution time: " + (new Date().getTime() - time) + "ms");
     }
 
     public static int[] StringArrToIntArr(String[] s) {
