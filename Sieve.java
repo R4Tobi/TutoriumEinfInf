@@ -36,19 +36,20 @@ public class Sieve {
             array[index] = index;
         }
         System.out.println(Arrays.toString(array));
-        //entferne jede nummer aus dem array die keine Primzahl ist
+        //Ende der Schleife ist erreicht, wenn die hälfte aller möglichen operationen erreicht ist (1*9 = 9*1), also reicht die Wurzel der höchsten zahl als Durchgänge
         double end = Math.sqrt(n);
-
+        //Zählerschleife für dividenden
         for(int jndex = 2; jndex < end; jndex++){
+            //Schleife für Indizes vom Array
             for(int index = 0; index < n; index++){
+                //setze jede zahl aus dem array 0, die durch den divisor, aber nicht durch sich selbst teilbar ist
                 if(array[index] % jndex == 0 && array[index] != jndex){
                     array[index] = 0;
                 }
             }
+            //Ausgabe des gefilterten Arrays zur Kontrolle
             System.out.println(Arrays.toString(array));
         }
-
-
 
         int[] returnArr = new int[0];
         for(int entry : array){
