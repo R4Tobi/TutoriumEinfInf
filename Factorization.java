@@ -23,13 +23,66 @@ public class Factorization {
         }
 
         //Gebe alle Primzahlen bis zum gewünschten Parameter aus
-        System.out.println("Die Zahl " + args[0] + "lässt sich in die folgenden Primfaktor zerlegen: ");
+        System.out.println("Die Zahl " + args[0] + " lässt sich in die folgenden Primfaktor zerlegen: " + Arrays.toString(primeFactors(Integer.parseInt(args[0]))));
 
         //Execution Zeit berechnen und ausgeben
         System.out.println("Execution time: " + (new Date().getTime() - time) + "ms");
     }
 
     public static int[] primeFactors(int number){
-        return new int[0];
+        int[] result = new int[0];
+        int[] primes = eratosthenesSieve(number);
+        int remainder = number;
+
+        while (remainder > 1){
+            for(int prime : primes){
+                if(remainder % prime == 0){
+                    result = pushInt(result, prime);
+                    remainder /= prime;
+                }
+            }
+        }
+        Arrays.sort(result);
+        return result;
+    }
+
+    //Hilfsfunktionen
+    public static int[] pushInt(int[] array, int push) {
+        //verlängere den Array um eine Position
+        int[] longer = new int[array.length + 1];
+        //füge die werte dem neuen Array hinzu
+        for (int i = 0; i < array.length; i++){
+            longer[i] = array[i];
+        }
+        //setze den neuen Wert an der letzten Position ein
+        longer[array.length] = push;
+        return longer;
+    }
+
+    public static int[] eratosthenesSieve(int n) {
+        //Erstellen eines neuen Arrays mit dem Inhalt von 0 bis n
+        int[] array = new int[n];
+        for (int index = 2; index < n; index++) {
+            array[index] = index;
+        }
+        //Ende der Schleife ist erreicht, wenn die hälfte aller möglichen operationen erreicht ist (1*9 = 9*1), also reicht die Wurzel der höchsten zahl als Anzahl der Durchgänge
+        double end = Math.sqrt(n);
+        //Zählerschleife für dividenden
+        for (int jndex = 2; jndex < end; jndex++) {
+            //Schleife für Indizes vom Array
+            for (int index = 0; index < n; index++) {
+                //setze jede zahl aus dem array 0, die durch den divisor, aber nicht durch sich selbst teilbar ist
+                if (array[index] % jndex == 0 && array[index] != jndex) {
+                    array[index] = 0;
+                }
+            }
+        }
+        int[] returnArr = new int[0];
+        for(int entry : array){
+            if(entry != 0){
+                returnArr = pushInt(returnArr, entry);
+            }
+        }
+        return returnArr;
     }
 }

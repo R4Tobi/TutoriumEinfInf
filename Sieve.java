@@ -60,6 +60,8 @@ public class Sieve {
         return returnArr;
     }
 
+    //Hilfsfunktionen
+
     public static int[] pushInt(int[] array, int push) {
         //verlängere den Array um eine Position
         int[] longer = new int[array.length + 1];
