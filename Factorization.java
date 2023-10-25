@@ -49,11 +49,11 @@ public class Factorization {
         return result;
     }
 
-    /* ------------------------------------------------------------*
-
-                             HILFSFUNKTIONEN
-
-    *______________________________________________________________*/
+    /* ------------------------------------------------------------*/
+    //
+    //                     HILFSFUNKTIONEN
+    //
+    /*______________________________________________________________*/
     public static int[] pushInt(int[] array, int push) {
         //verlängere den Array um eine Position
         int[] longer = new int[array.length + 1];
