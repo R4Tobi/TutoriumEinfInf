@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class MonteCarlo {
@@ -30,22 +29,37 @@ public class MonteCarlo {
 
         //Aus dem ersten Argument die Operation bestimmen
         switch(argOperation){
-            case "pi" -> System.out.println(approxPi(argInt));
-            case "zonk" -> zonk(argInt);
-            case "dice" -> System.out.println("Würfel");
-            default -> System.out.println("No Operation found. Choose from: \n - pi \n - zonk \n - dice");
+            case "pi": {
+                System.out.println(approxPi(argInt));
+                break;
+            }
+            case "zonk": {
+                zonk(argInt);
+                break;
+            }
+            case "dice": {
+                dice(argInt,5,5);
+                dice(argInt,5,6);
+                break;
+            }
+            default: {
+                System.out.println("No Operation found. Choose from: \n - pi \n - zonk \n - dice");
+            }
         }
     }
 
     public static double approxPi (int n){
         int smallerOne = 0;
         for(int index = 0; index < n; index++){
+            // x und y zwischen 0 und 1 zufällig bestimmen
             double x = Math.random();
             double y = Math.random();
+            //Gleichung für den Einheitskreis, alle werte unter 1 gehören in den Kreis
             if(x*x + y*y < 1){
                 smallerOne++;
             }
         }
+        //Anzahl der Zahlen im Kreis durch alle getesteten Zahlen
         return ((double) smallerOne / n) * 4;
     }
 
@@ -80,7 +94,7 @@ public class MonteCarlo {
             }
         }
 
-        //Ergebnisse auswerten
+        //Ergebnisse auswerten und ausgeben
         double stayWinPercentage = (double) stayed / n * 100;
         double switchWinPercentage = (double) switched / n * 100;
 
@@ -89,5 +103,41 @@ public class MonteCarlo {
         System.out.println("Switched: " + switched);
         System.out.println("Stay Win Percentage: " + stayWinPercentage + "%");
         System.out.println("Switch Win Percentage: " + switchWinPercentage + "%");
+    }
+
+    public static void dice(int n, int first, int second){
+        //Array in dem die Schritte bis zum nächsten Paar gespeichert werden
+        int[] tries = new int[0];
+        int steps = 0;
+
+        for(int index = 0; index < n; index++){
+            //Zweimal würfeln
+            int throwOne = (int) (Math.random() * 6 + 1);
+            int throwTwo = (int) (Math.random() * 6 + 1);
+            //steps mit jeder Iteration erhöhen
+            steps++;
+            if(throwOne == first && throwTwo == second) {
+                //Schritte hinzufügen
+                tries = pushInt(tries, steps);
+                //Schritte wieder auf 0 setzen
+                steps = 0;
+            }
+        }
+        //Durchschnittswert bilden (Summe durch Anzahl)
+        int summe = 0;
+        for(int step : tries){
+            summe += step;
+        }
+        //Ergebnis ausgeben
+        System.out.println("Durchschnittliche Versuche bis " + first + "->"  + second +  ": " + ((double) summe/tries.length));
+    }
+    public static int[] pushInt(int[] array, int push) {
+        //verlängere den Array um eine Position
+        int[] longer = new int[array.length + 1];
+        //füge die werte dem neuen Array hinzu
+        for (int i = 0; i < array.length; i++) longer[i] = array[i];
+        //setze den neuen Wert an der letzten Position ein
+        longer[array.length] = push;
+        return longer;
     }
 }
