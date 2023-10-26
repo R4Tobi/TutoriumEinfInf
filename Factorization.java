@@ -54,7 +54,7 @@ public class Factorization {
     //                     HILFSFUNKTIONEN
     //
     /*______________________________________________________________*/
-    public static int[] pushInt(int[] array, int push) {
+    private static int[] pushInt(int[] array, int push) {
         //verlängere den Array um eine Position
         int[] longer = new int[array.length + 1];
         //füge die werte dem neuen Array hinzu
@@ -66,7 +66,7 @@ public class Factorization {
         return longer;
     }
 
-    public static int[] primesUntil(int n) {
+    private static int[] primesUntil(int n) {
         //Erstellen eines neuen Arrays mit dem Inhalt von 0 bis n
         int[] array = new int[n];
         for(int index = 2; index < n; index++){
@@ -82,8 +82,6 @@ public class Factorization {
                 }
             }
         }
-
-
 
         int[] returnArr = new int[0];
         for(int entry : array) {
