@@ -3,9 +3,6 @@ import java.util.Date;
 
 public class Factorization {
     public static void main(String[] args){
-        //Für die Execution-Zeit
-        long time = new Date().getTime();
-
         //Kontrollieren des Parameters
         if(args.length != 1){
             System.out.println("1 Argument expected. " + args.length + " Arguments given.");
@@ -24,9 +21,6 @@ public class Factorization {
 
         //Gebe alle Primzahlen bis zum gewünschten Parameter aus
         System.out.println("Die Zahl " + args[0] + " lässt sich in die folgenden Primfaktor zerlegen: " + Arrays.toString(primeFactors(Integer.parseInt(args[0]))));
-
-        //Execution Zeit berechnen und ausgeben
-        System.out.println("Execution time: " + (new Date().getTime() - time) + "ms");
     }
 
     public static int[] primeFactors(int number){
