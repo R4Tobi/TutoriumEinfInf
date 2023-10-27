@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"Alle Klassen und Schnittstellen","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"Factorization"},{"p":"<Unnamed>","l":"MonteCarlo"},{"p":"<Unnamed>","l":"Permutation"},{"p":"<Unnamed>","l":"Sieve"},{"p":"<Unnamed>","l":"Statistics"}];updateSearchResults();
