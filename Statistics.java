@@ -1,10 +1,10 @@
-import java.util.Date;
-
+/**
+ * Klasse, die Methoden zur Statistik enthält.
+ */
 public class Statistics {
-
     /**
-     * prüft ob der Parameter ein Integer ist und führt alle Operationen aus.
-     * @param args
+     * Prüft, ob alle Argumente Integer sind, und führt alle Operationen aus.
+     * @param args Array der Strings enthält.
      */
     public static void main(String[] args){
         //Kontrollieren ob einer der Parameter ein Integer ist
@@ -37,23 +37,9 @@ public class Statistics {
     }
 
     /**
-     * Konvertiert ein String-Array in ein Integer-Array
-     * @param s
-     * @return integer array
-     */
-    public static int[] StringArrToIntArr(String[] s) {
-        int[] result = new int[s.length];
-        //jeder Eintrag im String Array wird zu einem Integer umgewandelt
-        for (int i = 0; i < s.length; i++) {
-            result[i] = Integer.parseInt(s[i]);
-        }
-        return result;
-    }
-
-    /**
-     * berechnet die Summe aller zahlen in einem Integer-Array
-     * @param numbers
-     * @return Summe der Zahlen
+     * Berechnet die Summe aller Zahlen in einem Integer-Array.
+     * @param numbers Array der aus Integern besteht
+     * @return <code>int</code> - Summe
      */
     public static int summe(int[] numbers){
         int summe = 0;
@@ -65,9 +51,9 @@ public class Statistics {
     }
 
     /**
-     * berechnet den Mittelwert anhand der Summe der zahlen und der Länge des Arrays
-     * @param numbers
-     * @return Mittelwert der Zahlen im Array.
+     * Berechnet den Mittelwert anhand der Summe der Zahlen und der Länge des Arrays.
+     * @param numbers Array aus Integern.
+     * @return <code>double</code> - Mittelwert der Zahlen im Array als Gleitkommazahl.
      */
     public static double mittelwert(int[] numbers){
         //Berechnen des arithmetischen Mittels durch die Summe der Zahlen und der Anzahl der Einträge
@@ -77,14 +63,13 @@ public class Statistics {
 
     /**
      * Berechnet die Varianz nach der Formel: 1/n * Ʃ(n, i = 1) (x<sub>i</sub> - ˉx)<sup>2</sup>
-     * @param numbers
-     * @return varianz der zahlen
+     * @param numbers Array, aus dem der Mittelwert erzeugt werden soll.
+     * @return <code>double</code> - Varianz als Gleitkommazahl.
      */
     public static double varianz(int[] numbers){
         double mittelwert = mittelwert(numbers);
         double varianz = 0;
         //Die Schleife berechnet die Summe(Iteration) der Formel
-        // Images/Varianz.png
         for(int number : numbers){
             varianz += (Math.pow(number - mittelwert, 2));
         }
@@ -96,8 +81,8 @@ public class Statistics {
 
     /**
      * Berechnet die Standardabweichung, als die Quadratwurzel der Varianz
-     * @param numbers
-     * @return Standardabweichung
+     * @param numbers Array, aus dem die Standardabweichung erzeugt werden soll.
+     * @return <code>double</code> - Standardabweichung
      */
     public static double standardabweichung(int[] numbers){
         return (Math.sqrt(varianz(numbers)));
@@ -105,8 +90,8 @@ public class Statistics {
 
     /**
     * Gibt ein Histogramm in der Konsole aus.
-    * @param numbers
-    * @return formatiertes Histogramm als String
+    * @param numbers Array, in dem die Zahlen stehen, die im Histogramm ausgewertet werden sollen.
+    * @return <code>String</code> - formatiertes Histogramm als String
     * */
     public static String histogramm(int[] numbers){
         int highest = numbers[0];
@@ -147,5 +132,19 @@ public class Statistics {
             histogramm += indexString + hash + "\n";
         }
         return histogramm;
+    }
+
+    /**
+     * Konvertiert ein String-Array in ein Integer-Array (Hilfsfunktion)
+     * @param string String-Array der (!) nachweislich nur "Integer" enthält
+     * @return <code>int[]</code>
+     */
+    public static int[] StringArrToIntArr(String[] string) {
+        int[] result = new int[string.length];
+        //jeder Eintrag im String Array wird zu einem Integer umgewandelt
+        for (int i = 0; i < string.length; i++) {
+            result[i] = Integer.parseInt(string[i]);
+        }
+        return result;
     }
 }

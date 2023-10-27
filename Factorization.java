@@ -1,10 +1,12 @@
 import java.util.Arrays;
-import java.util.Date;
 
+/**
+ * Klasse, die zur Bestimmung der Primfaktoren verwendet werden kann.
+ * */
 public class Factorization {
     /**
-     * prüft, ob der Parameter ein positive Integer ist und gibt die Primfaktoren zurück
-     * @param args array der zahl
+     * Prüft, ob der Parameter ein positiver Integer ist und gibt die Primfaktoren aus
+     * @param args String-Array
      */
     public static void main(String[] args){
         //Kontrollieren des Parameters
@@ -28,16 +30,16 @@ public class Factorization {
     }
 
     /**
-     *Wird in der mainmethode verwendet, um die Primzahlen des Parameters zu erhalten
-     * @param number Zahl,für die wir die Primfaktoren benötigen
-     * @return die Primfaktoren der Zahl
+     * Wird verwendet, um die Primfaktoren des Parameters zu erhalten
+     * @param number Zahl, für die wir die Primfaktoren benötigen
+     * @return <code>int[]</code> - die Primfaktoren der Zahl
      */
     public static int[] primeFactors(int number){
         int[] result = new int[0];
         int[] primes = primesUntil(number);
         int remainder = number;
 
-        //Die Schleife wird solange ausgeführt, bis der Rest der Division kleiner oder gleich eins ist.
+        //Die Schleife wird so lange ausgeführt, bis der Rest der Division kleiner oder gleich eins ist.
         while (remainder > 1){
             //gehe jede Primzahl durch
             for(int prime : primes){

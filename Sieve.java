@@ -1,7 +1,18 @@
 import java.util.Arrays;
-import java.util.Date;
 
+/**
+ * Klasse, mit der die Primzahlen bis zu einer Zahl n, mithilfe des Sieb des Eratosthenes, bestimmt werden können
+ */
 public class Sieve {
+    /**
+     *  Überprüft den Parameter bei Aufruf auf:
+     *  <ul>
+     *      <li>richtige Länge (1),</li>
+     *      <li>Umwandelbarkeit in einen Integer,</li>
+     *      <li>Größe des Arguments (arg > 0)</li>
+     *  </ul>
+     * @param args String-Array
+     */
     public static void main(String[] args){
         //Kontrollieren des Parameters
         if(args.length != 1){
@@ -23,6 +34,11 @@ public class Sieve {
         System.out.println("Alle Primzahlen bis " + args[0] + ": " + Arrays.toString(eratosthenesSieve(Integer.parseInt(args[0]))));
     }
 
+    /**
+     * Eratosthenes-Sieb Algorithmus. In dieser Methode wird der Algorithmus ausgeführt.
+     * @param n Zahl, bis wohin alle Primzahlen erzeugt werden sollen.
+     * @return <code>int[]</code> - Array aus Integern (Primzahlen)
+     */
     public static int[] eratosthenesSieve(int n){
         //Erstellen eines neuen Arrays mit dem Inhalt von 0 bis n
         int[] array = new int[n];
@@ -60,6 +76,12 @@ public class Sieve {
     //
     /*______________________________________________________________*/
 
+    /**
+     * push-Funktion für int[]-Arrays (Hilfsfunktion).
+     * @param array ursprünglicher Array
+     * @param push Wert, der am Ende des Arrays hinzugefügt werden soll
+     * @return <code>int[]</code>
+     */
     public static int[] pushInt(int[] array, int push) {
         //verlängere den Array um eine Position
         int[] longer = new int[array.length + 1];
