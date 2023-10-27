@@ -2,6 +2,10 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class Factorization {
+    /**
+     * prüft, ob der Parameter ein positive Integer ist und gibt die Primfaktoren zurück
+     * @param args array der zahl
+     */
     public static void main(String[] args){
         //Kontrollieren des Parameters
         if(args.length != 1){
@@ -23,6 +27,11 @@ public class Factorization {
         System.out.println("Die Zahl " + args[0] + " lässt sich in die folgenden Primfaktor zerlegen: " + Arrays.toString(primeFactors(Integer.parseInt(args[0]))));
     }
 
+    /**
+     *Wird in der mainmethode verwendet, um die Primzahlen des Parameters zu erhalten
+     * @param number Zahl,für die wir die Primfaktoren benötigen
+     * @return die Primfaktoren der Zahl
+     */
     public static int[] primeFactors(int number){
         int[] result = new int[0];
         int[] primes = primesUntil(number);
@@ -48,6 +57,8 @@ public class Factorization {
     //                     HILFSFUNKTIONEN
     //
     /*______________________________________________________________*/
+
+
     private static int[] pushInt(int[] array, int push) {
         //verlängere den Array um eine Position
         int[] longer = new int[array.length + 1];
@@ -59,6 +70,7 @@ public class Factorization {
         longer[array.length] = push;
         return longer;
     }
+
 
     private static int[] primesUntil(int n) {
         //Erstellen eines neuen Arrays mit dem Inhalt von 0 bis n
