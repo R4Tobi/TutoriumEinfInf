@@ -131,6 +131,13 @@ public class MonteCarlo {
         //Ergebnis ausgeben
         System.out.println("Durchschnittliche Versuche bis " + first + "->"  + second +  ": " + ((double) summe/tries.length));
     }
+
+    /* ------------------------------------------------------------*/
+    //
+    //                     HILFSFUNKTIONEN
+    //
+    /*______________________________________________________________*/
+
     public static int[] pushInt(int[] array, int push) {
         //verlängere den Array um eine Position
         int[] longer = new int[array.length + 1];

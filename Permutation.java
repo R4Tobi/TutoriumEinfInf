@@ -54,6 +54,12 @@ public class Permutation {
         return permutations.toArray(new String[0][0]); //Liste in Array umwandeln und zurückgeben. ACHTUNG: Array ist zweidimensional deswegen [][]
     }
 
+    /* ------------------------------------------------------------*/
+    //
+    //                     HILFSFUNKTIONEN
+    //
+    /*______________________________________________________________*/
+
     private static void swap(String[] array, int a, int b) {
         String temp = array[a];
         array[a] = array[b];

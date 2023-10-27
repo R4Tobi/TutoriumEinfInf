@@ -54,7 +54,11 @@ public class Sieve {
         return returnArr;
     }
 
-    //Hilfsfunktionen
+    /* ------------------------------------------------------------*/
+    //
+    //                     HILFSFUNKTIONEN
+    //
+    /*______________________________________________________________*/
 
     public static int[] pushInt(int[] array, int push) {
         //verlängere den Array um eine Position
