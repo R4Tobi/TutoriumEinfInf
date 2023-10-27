@@ -1,6 +1,11 @@
 import java.util.Date;
 
 public class Statistics {
+
+    /**
+     * prüft ob der Parameter kein Integer ist
+     * @param args
+     */
     public static void main(String[] args){
         //Kontrollieren ob einer der Parameter kein Integer ist
         for (String arg : args) {
@@ -31,6 +36,11 @@ public class Statistics {
         System.out.println("Histogramm: \n" + histogramm(intArgs));
     }
 
+    /**
+     * Konvertiert das String-Array in ein Integer-Array
+     * @param s
+     * @return integer array
+     */
     public static int[] StringArrToIntArr(String[] s) {
         int[] result = new int[s.length];
         //jeder Eintrag im String Array wird zu einem Integer umgewandelt
@@ -40,6 +50,11 @@ public class Statistics {
         return result;
     }
 
+    /**
+     * berechnet die summe der zahlen im Integer-Array
+     * @param numbers
+     * @return summe der zahlen
+     */
     public static int summe(int[] numbers){
         int summe = 0;
         //summiere jeden Eintrag aus dem Array auf die Summe
@@ -49,12 +64,24 @@ public class Statistics {
         return summe;
     }
 
+    /**
+     * berechnet den mittelwert anhand der summe der zahlen und der länge des arrays
+     * @param numbers
+     * @return mittelwert der zahlen
+     */
     public static double mittelwert(int[] numbers){
         //Berechnen des arithmetischen Mittels durch die Summe der Zahlen und der Anzahl der Einträge
         int summe = summe(numbers);
         return ((double) summe / numbers.length);
     }
 
+    /**
+     *berechnet die Varianz anhand des Mittelwerts
+     * berechnet die Varianz in zwei Schritten
+     * der erste Teil ist der Zählerteil der Formel und der zweite ist der Nennerteil
+     * @param numbers
+     * @return varianz der zahlen
+     */
     public static double varianz(int[] numbers){
         double mittelwert = mittelwert(numbers);
         double varianz = 0;
@@ -69,6 +96,12 @@ public class Statistics {
         return varianz;
     }
 
+    /**
+     *berechnet die Standardabweichung
+     * berechnet die Quadratwurzel der Varianz
+     * @param numbers
+     * @return standarbabweichung der zahlen
+     */
     public static double standardabweichung(int[] numbers){
         return (Math.sqrt(varianz(numbers)));
     }
