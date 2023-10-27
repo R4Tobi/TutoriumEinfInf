@@ -3,11 +3,11 @@ import java.util.Date;
 public class Statistics {
 
     /**
-     * prüft ob der Parameter kein Integer ist
+     * prüft ob der Parameter ein Integer ist und führt alle Operationen aus.
      * @param args
      */
     public static void main(String[] args){
-        //Kontrollieren ob einer der Parameter kein Integer ist
+        //Kontrollieren ob einer der Parameter ein Integer ist
         for (String arg : args) {
             try {
                 Integer.parseInt(arg);
@@ -37,7 +37,7 @@ public class Statistics {
     }
 
     /**
-     * Konvertiert das String-Array in ein Integer-Array
+     * Konvertiert ein String-Array in ein Integer-Array
      * @param s
      * @return integer array
      */
@@ -51,9 +51,9 @@ public class Statistics {
     }
 
     /**
-     * berechnet die summe der zahlen im Integer-Array
+     * berechnet die Summe aller zahlen in einem Integer-Array
      * @param numbers
-     * @return summe der zahlen
+     * @return Summe der Zahlen
      */
     public static int summe(int[] numbers){
         int summe = 0;
@@ -65,9 +65,9 @@ public class Statistics {
     }
 
     /**
-     * berechnet den mittelwert anhand der summe der zahlen und der länge des arrays
+     * berechnet den Mittelwert anhand der Summe der zahlen und der Länge des Arrays
      * @param numbers
-     * @return mittelwert der zahlen
+     * @return Mittelwert der Zahlen im Array.
      */
     public static double mittelwert(int[] numbers){
         //Berechnen des arithmetischen Mittels durch die Summe der Zahlen und der Anzahl der Einträge
@@ -76,9 +76,7 @@ public class Statistics {
     }
 
     /**
-     *berechnet die Varianz anhand des Mittelwerts
-     * berechnet die Varianz in zwei Schritten
-     * der erste Teil ist der Zählerteil der Formel und der zweite ist der Nennerteil
+     * Berechnet die Varianz nach der Formel: 1/n * Ʃ(n, i = 1) (x<sub>i</sub> - ˉx)<sup>2</sup>
      * @param numbers
      * @return varianz der zahlen
      */
@@ -97,15 +95,19 @@ public class Statistics {
     }
 
     /**
-     *berechnet die Standardabweichung
-     * berechnet die Quadratwurzel der Varianz
+     * Berechnet die Standardabweichung, als die Quadratwurzel der Varianz
      * @param numbers
-     * @return standarbabweichung der zahlen
+     * @return Standardabweichung
      */
     public static double standardabweichung(int[] numbers){
         return (Math.sqrt(varianz(numbers)));
     }
 
+    /**
+    * Gibt ein Histogramm in der Konsole aus.
+    * @param numbers
+    * @return formatiertes Histogramm als String
+    * */
     public static String histogramm(int[] numbers){
         int highest = numbers[0];
         int lowest = numbers[0];
