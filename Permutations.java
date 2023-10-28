@@ -1,12 +1,27 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+/**
+Klasse, um Permutationen eines Arrays zu bestimmen.
+ */
 public class Permutations {
-
+    /**
+     * Gibt die Argumente in die Funktion weiter
+     * @param args String-Array
+     */
     public static void main(String[] args) {
         System.out.println(Arrays.toString(generatePermutations(args)));
     }
+    /**
+     * HEAP's-Algorithmus:
+     * <ul>
+     *     <li>Der Algorithmus erzeugt (n-1)! Permutationen der ersten n-1 Elemente, wobei das letzte Element an jedes dieser Elemente angehängt wird. Dadurch werden alle Permutationen erzeugt, die mit dem letzten Element enden. </li>
+     *     <li>Wenn n ungerade ist, vertauscht man das erste und das letzte Element, wenn n gerade ist, vertauscht man das index-te Element und das letzte Element und wiederholt den Algorithmus, bis index kleiner als n ist. </li>
+     *     <li>In jeder Iteration erzeugt der Algorithmus alle Permutationen, die mit dem aktuellen letzten Element enden.</li>
+     * </ul>
+     * @param array Array, aus dem die Permutationen erzeugt werden sollen.
+     * @return <code>String[]</code> - Alle Permutationen werden zurückgegeben.
+     */
     public static String[] generatePermutations(String[] array) {
         //ArrayList erstellen
         List<String[]> permutations = new ArrayList<>();
@@ -52,11 +67,11 @@ public class Permutations {
         }
         System.out.println(permutations.toArray(new String[0][0]).length + " Permutationen, soll: " + n + "!" ); // Anzahl der erstellten Permutationen Ausgeben
 
-        //Die Liste in Einen 2-Dimensionalen String-Array umwandeln
+        //Die Liste in Einen 1-Dimensionalen String-Array umwandeln
         String[] result = new String[0];
-
+        //Jede Permutation in result hinzufügen
         for (String[] permutation : permutations) {
-            result = pushString(result, Arrays.toString(permutation)); // Gebe jede erzeugte Permutation aus
+            result = pushString(result, Arrays.toString(permutation));
         }
         return result;
     }

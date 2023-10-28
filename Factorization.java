@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 /**
- * Klasse, die zur Bestimmung der Primfaktoren verwendet werden kann.
+ * Klasse, die zur Bestimmung der Primfaktoren einer Zahl verwendet werden kann.
  * */
 public class Factorization {
     /**

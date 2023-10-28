@@ -1,7 +1,13 @@
 import java.util.Random;
-
+/**
+ Klasse, um Zufallsversuche zu simulieren. (Annäherung an PI, Ziegenproblem, Würfeln)
+ */
 public class MonteCarlo {
-
+    /**
+     * Prüft, ob die Argumente richtig sind und führt die gewählte Operation aus.
+     * @param args String-Array der Kardinalität 2: erstes Arguments ist die Operation, zweites Argument die Zahl der Durchläufe
+     * @throws IllegalArgumentException wenn die Argumente nicht den richtigen Typen haben.
+     */
     public static void main (String[] args){
         /*
         *
@@ -48,6 +54,12 @@ public class MonteCarlo {
         }
     }
 
+    /**
+     * Funktion um sich der Kreiszahl Pi durch Zufallsversuche anzunähern.
+     * @param n Anzahl der Durchläufe
+     * @return <code>double</code> - Annäherung an die Zahl Pi
+     */
+
     public static double approxPi (int n){
         int smallerOne = 0;
         for(int index = 0; index < n; index++){
@@ -63,6 +75,10 @@ public class MonteCarlo {
         return ((double) smallerOne / n) * 4;
     }
 
+    /**
+     * Wahrscheinlichkeitsbestimmung für das Ziegenproblem oder Monty-Hall-Problem
+     * @param n Anzahl der durchläufe um die Wahrscheinlichkeit zu bestimmen
+     */
     public static void zonk(int n) {;
         int stayed = 0;
         int switched = 0;
@@ -105,6 +121,12 @@ public class MonteCarlo {
         System.out.println("Switch Win Percentage: " + switchWinPercentage + "%");
     }
 
+    /**
+     * Gibt über die Konsole aus nach wie vielen Versuchen im Durchschnitt die Folge <code>first</code> -> <code>second</code> auftritt.
+     * @param n Anzahl der Durchläufe.
+     * @param first Erste Zahl die gewürfelt werden soll.
+     * @param second Zweite Zahl die gewürfelt werden soll.
+     */
     public static void dice(int n, int first, int second){
         //Array in dem die Schritte bis zum nächsten Paar gespeichert werden
         int[] tries = new int[0];
@@ -138,7 +160,7 @@ public class MonteCarlo {
     //
     /*______________________________________________________________*/
 
-    public static int[] pushInt(int[] array, int push) {
+    private static int[] pushInt(int[] array, int push) {
         //verlängere den Array um eine Position
         int[] longer = new int[array.length + 1];
         //füge die werte dem neuen Array hinzu

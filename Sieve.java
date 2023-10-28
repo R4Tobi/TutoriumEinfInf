@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 /**
- * Klasse, mit der die Primzahlen bis zu einer Zahl n, mithilfe des Sieb des Eratosthenes, bestimmt werden können
+ * Klasse, mit der die Primzahlen bis zu einer Zahl n, mithilfe des Sieb des Eratosthenes, bestimmt werden können.
  */
 public class Sieve {
     /**
