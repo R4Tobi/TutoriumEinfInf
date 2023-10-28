@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Permutation {
+public class Permutations {
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(generatePermutations(args)));
     }
-    public static String[][] generatePermutations(String[] array) {
+    public static String[] generatePermutations(String[] array) {
         //ArrayList erstellen
         List<String[]> permutations = new ArrayList<>();
 
@@ -51,7 +51,14 @@ public class Permutation {
             }
         }
         System.out.println(permutations.toArray(new String[0][0]).length + " Permutationen, soll: " + n + "!" ); // Anzahl der erstellten Permutationen Ausgeben
-        return permutations.toArray(new String[0][0]); //Liste in Array umwandeln und zurückgeben. ACHTUNG: Array ist zweidimensional deswegen [][]
+
+        //Die Liste in Einen 2-Dimensionalen String-Array umwandeln
+        String[] result = new String[0];
+
+        for (String[] permutation : permutations) {
+            result = pushString(result, Arrays.toString(permutation)); // Gebe jede erzeugte Permutation aus
+        }
+        return result;
     }
 
     /* ------------------------------------------------------------*/
@@ -64,5 +71,23 @@ public class Permutation {
         String temp = array[a];
         array[a] = array[b];
         array[b] = temp;
+    }
+
+    /**
+     * push-Funktion für String[]-Arrays (Hilfsfunktion).
+     * @param array ursprünglicher Array
+     * @param push Wert, der am Ende des Arrays hinzugefügt werden soll
+     * @return <code>String[]</code>
+     */
+    public static String[] pushString(String[] array, String push) {
+        //verlängere den Array um eine Position
+        String[] longer = new String[array.length + 1];
+        //füge die werte dem neuen Array hinzu
+        for (int i = 0; i < array.length; i++){
+            longer[i] = array[i];
+        }
+        //setze den neuen Wert an der letzten Position ein
+        longer[array.length] = push;
+        return longer;
     }
 }
