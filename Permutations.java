@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /**
-Klasse, um Permutationen eines Arrays zu bestimmen.
+ Klasse, um Permutationen eines Arrays zu bestimmen.
  */
 public class Permutations {
     /**
