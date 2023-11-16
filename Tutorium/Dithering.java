@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * Klasse, die verwendet wird um aus einem Bild ein ASCII-Image zu erstellen
@@ -16,7 +17,7 @@ public class Dithering {
      * Funktion die das ASCII-Bild erstellt
      * @param filePath Pfad zum Bild das umgewandelt werden soll.
      */
-    public static void dithering(String filePath) {
+    public static void dithering(String filePath, boolean invert) {
         //  wir nehmen ein Farbbild mit RBG-Werten an.
         BufferedImage img = null;
         try {
@@ -46,11 +47,12 @@ public class Dithering {
                 double gg = g/255.0;
                 double bb = b/255.0;
 
-                double gray = 0.33*rr + 0.33*gg + 0.33*bb;
+                double gray = 0.3*rr + 0.59*gg + 0.11*bb;
 
                 grayValues.add(new double[]{j, i, gray});
             }
         }
+
 
         String[] characters = new String[]{" ","~","+","=","*","o","x","0","&","#"};
         String[] result = new String[m];
@@ -88,11 +90,19 @@ public class Dithering {
         }
     }
 
+    /**
+     * ruft dithering-Funktion auf. Als arg wird nur der Dateipfad akzeptiert
+     * @param args
+     */
     public static void main(String[] args){
-        if(args.length != 1){
-            System.err.println("Expected 1 Argument. " + args.length + " Arguments given.");
+        if(args.length != 2){
+            System.err.println("Expected 2 Arguments. " + args.length + " Arguments given.\n Expected FilePath(String) and invert(boolean)");
             System.exit(1);
         }
-        dithering(args[0]);
+        if((Objects.equals(args[1], "true")) || String.valueOf(args[1]) == "false"){
+            System.err.println("Second Argument is not a valid Boolean");
+        }
+
+        dithering(args[0], Boolean.parseBoolean(args[1]));
     }
 }
