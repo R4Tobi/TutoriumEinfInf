@@ -35,6 +35,7 @@ public class Dithering {
         for (int i=0 ;i<m; ++i) {
             for (int j=0; j<n; ++j) {
                 int value = img.getRGB(j, i);// Pixelwert in interner Darstellung
+                System.out.println(value);
 
                 Color c = new Color(value);
                 int r,g,b;                       // Rot-, Grün- und Blauwert (jeweils in 0,...,255)
