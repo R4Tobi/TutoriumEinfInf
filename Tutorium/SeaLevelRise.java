@@ -1,5 +1,7 @@
 package Tutorium;
 
+import java.util.Arrays;
+
 public class SeaLevelRise {
     /**
      * Calls the function to visualize the rising of the sea level for different landscapes.
@@ -157,6 +159,7 @@ public class SeaLevelRise {
                 result[i] = current;
             }
         }
+        System.out.println(Arrays.toString(result).replaceAll(", ", "").replace("[", "").replace("]", ""));
         showSeaLevel(result, m);
     }
 
@@ -183,7 +186,7 @@ public class SeaLevelRise {
                 result[i] = 0;
             }
         }
-
+        System.out.println(Arrays.toString(result).replaceAll(", ", "").replace("[", "").replace("]", ""));
         showSeaLevel(result,isValley, m);
     }
 
@@ -225,12 +228,10 @@ public class SeaLevelRise {
             }
             j--;
         }
-        boolean res;
         if(hasLeft == hasRight){
-            res = hasRight;
+            return hasRight;
         }else{
-            res = false;
+            return false;
         }
-        return res;
     }
 }
