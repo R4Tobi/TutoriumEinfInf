@@ -1,4 +1,4 @@
-package Tutorium;
+package Tutorium.Simulations;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package Tutorium;
+package Tutorium.Math;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

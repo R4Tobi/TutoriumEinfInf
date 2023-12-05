@@ -1,4 +1,4 @@
-package Tutorium;
+package Tutorium.Strings;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

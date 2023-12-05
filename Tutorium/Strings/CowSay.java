@@ -1,4 +1,4 @@
-package Tutorium;
+package Tutorium.Strings;
 
 /**
  * Class, which is used to produce a 'CowSay' Output
@@ -15,11 +15,12 @@ public class CowSay {
         boolean tongue = false;
         int flagCounter = 0;
 
+        if(args.length < 3){
+            System.err.println("A Minimum of 3 Arguments is needed: e.g.: CowSay -W 6 Hello");
+            System.exit(-1);
+        }
+
         for (int i = 0; i < args.length; i++) { //processes the arguments given
-            if(args.length < 3){
-                System.err.println("A Minimum of 3 Arguments is needed: e.g.: CowSay -W 6 Hello");
-                System.exit(-1);
-            }
             if(args[i].startsWith("-")){
                 switch(args[i]){
                     case "-W": //switch case is used to compare a condition with multiple cases

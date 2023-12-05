@@ -1,4 +1,4 @@
-package Tutorium;
+package Tutorium.Arrays;
 
 public class Sudoku {
     /**

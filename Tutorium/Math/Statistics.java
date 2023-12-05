@@ -1,4 +1,4 @@
-package Tutorium;
+package Tutorium.Math;
 /**
  * Klasse, die Methoden zur Statistik enthält.
  */

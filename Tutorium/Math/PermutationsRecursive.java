@@ -1,4 +1,4 @@
-package Tutorium;
+package Tutorium.Math;
 /**
  * Klasse um sich Permutationen eines Arrays ausgeben zu lassen
  */

@@ -1,4 +1,4 @@
-package Tutorium;
+package Tutorium.Strings;
 
 import java.io.File;
 import java.io.FileNotFoundException;

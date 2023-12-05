@@ -1,4 +1,4 @@
-package Tutorium;
+package Tutorium.Arrays;
 /**
  * Klasse, mit der ein TicTacToe-Feld überprüft, und der Gewinner ermittelt werden kann.
  */

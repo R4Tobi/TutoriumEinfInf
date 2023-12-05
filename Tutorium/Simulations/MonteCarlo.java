@@ -1,4 +1,4 @@
-package Tutorium;
+package Tutorium.Simulations;
 import java.util.Random;
 /**
  Klasse, um Zufallsversuche zu simulieren. (Annäherung an PI, Ziegenproblem, Würfeln)
